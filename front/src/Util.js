@@ -14,7 +14,10 @@ const API_URL_PRODUCAO = process.env.REACT_APP_API_URL_PRODUCAO;
 const API_URL_HOMOLOGACAO = process.env.REACT_APP_API_URL_HOMOLOGACAO;
 const API_URL = (ENV === ENV_PRODUCTION) ? API_URL_PRODUCAO : API_URL_HOMOLOGACAO;
 
-//TODO - ROTAS
+//ROTAS
+export const API_POSTS = API_URL + process.env.REACT_APP_API_POSTS;
+export const API_COMMENTS = API_URL + process.env.REACT_APP_API_COMMENTS;
+export const API_PROFILE = API_URL + process.env.REACT_APP_API_PROFILE;
 
 if (!String.prototype.padStart) {
     // eslint-disable-next-line
