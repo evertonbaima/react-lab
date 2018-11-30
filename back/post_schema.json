@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://localhost:3100/postSchema",
+    "title": "Post",
+    "description": "A post for my blog.",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "The unique identifier for a post.",
+            "type": "integer",
+            "exclusiveMinimum": 0
+        },
+        "title": {
+            "description": "The post headline.",
+            "type": "string"
+        },
+        "content": {
+            "description": "The content of the post.",
+            "type": "string"
+        },
+        "author": {
+            "description": "Who wrote the post.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "id",
+        "title",
+        "content",
+        "author"
+    ]
+}

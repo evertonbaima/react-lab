@@ -1,0 +1,165 @@
+{
+    "postSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$id": "http://localhost:3100/postSchema",
+        "title": "Post",
+        "description": "A post for my blog",
+        "type": "object",
+        "properties": {
+            "id": {
+                "description": "The unique identifier for a post.",
+                "type": "integer",
+                "exclusiveMinimum": 0
+            },
+            "title": {
+                "description": "The post headline.",
+                "type": "string"
+            },
+            "content": {
+                "description": "The content of the post.",
+                "type": "string"
+            },
+            "author": {
+                "description": "Who wrote the post.",
+                "type": "string"
+            }
+        },
+        "required": [
+            "id",
+            "title",
+            "content",
+            "author"
+        ]
+    },
+    "commentSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$id": "http://localhost:3100/commentSchema",
+        "title": "Comment",
+        "description": "A comment for a post.",
+        "type": "object",
+        "properties": {
+            "id": {
+                "description": "The unique identifier for a comment.",
+                "type": "integer",
+                "exclusiveMinimum": 0
+            },
+            "body": {
+                "description": "The comment content.",
+                "type": "string"
+            },
+            "postId": {
+                "description": "The post that contains the comment.",
+                "type": "integer",
+                "exclusiveMinimum": 0
+            }
+        },
+        "required": [
+            "id",
+            "body",
+            "postId"
+        ]
+    },
+    "profileSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$id": "http://localhost:3100/profileSchema",
+        "title": "Profile",
+        "description": "A blog writer.",
+        "type": "object",
+        "properties": {
+            "name": {
+                "description": "Author's name.",
+                "type": "string"
+            }
+        },
+        "required": [
+            "name"
+        ]
+    },
+    "posts": [
+        {
+            "id": 1,
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis turpis non lacinia sagittis. Aliquam in condimentum augue, at imperdiet massa. Suspendisse at venenatis massa. Duis ut dignissim libero. Nulla ac maximus odio. Quisque eros lorem, porta ut vulputate in, molestie eu turpis. Suspendisse at erat lacinia, tristique leo ac, mollis ex. Cras a consequat metus. Maecenas et enim a eros auctor dictum.",
+            "author": "The Best Author"
+        },
+        {
+            "id": 2,
+            "title": "Nulla in nulla dapibus, condimentum erat id, ultrices turpis",
+            "content": "Sed maximus, ante tincidunt maximus hendrerit, nunc erat mattis nulla, nec consequat diam mauris et tellus. Ut posuere diam id est tempor, eu semper erat bibendum. Nunc fringilla gravida mollis. Proin vitae mauris mollis, cursus ante ac, commodo sem. Integer tempor risus odio, eget dignissim massa tincidunt volutpat. Nam id elit convallis ipsum scelerisque eleifend. Aliquam placerat dapibus tincidunt. Pellentesque dui tellus, egestas nec rhoncus ac, finibus at tellus. Donec sodales mollis ipsum eget pellentesque.",
+            "author": "The Best Author"
+        },
+        {
+            "id": 3,
+            "title": "Maecenas volutpat orci sed felis laoreet scelerisque",
+            "content": "Morbi vel lectus eu justo egestas sagittis. Mauris malesuada arcu mi. Fusce commodo nulla enim, at auctor neque aliquet eu. Aenean vulputate lectus sit amet mi tempus, a egestas quam tempor. Mauris sed ipsum non sem porta vehicula eu ut ligula. Quisque ac tempus ipsum, ac vulputate dui. Sed malesuada elit in sapien tincidunt, sed ornare ligula mollis. Donec at pretium felis, ut accumsan ligula. Suspendisse commodo iaculis volutpat. Donec massa erat, scelerisque vel dapibus ac, pulvinar in risus. In viverra quis tortor a maximus. Etiam nec odio non sapien mattis vehicula ut non sapien. Vestibulum id porttitor nunc, id vehicula nunc. Phasellus at erat sapien. Curabitur eros sapien, consequat egestas dui et, efficitur ornare risus.",
+            "author": "The Best Author"
+        },
+        {
+            "id": 4,
+            "title": "Suspendisse ut orci ut orci hendrerit ultrices",
+            "content": "Suspendisse blandit condimentum tempus. Aenean leo neque, gravida vel erat nec, auctor ullamcorper turpis. Maecenas eget tortor ut ipsum fermentum elementum. Integer finibus nisl non ipsum imperdiet vulputate. Nulla feugiat scelerisque condimentum. Ut eros nisl, malesuada et quam consequat, rhoncus rutrum arcu. Praesent eu urna pharetra, blandit turpis quis, aliquam nisi. Suspendisse pharetra lectus ac mollis pretium. Maecenas laoreet lectus ac blandit varius. Duis rhoncus vulputate leo, vitae faucibus odio fermentum sit amet. Suspendisse sed sollicitudin diam. Nullam commodo urna eget tincidunt bibendum. Vivamus consequat egestas metus nec euismod.",
+            "author": "The Best Author"
+        },
+        {
+            "id": 5,
+            "title": "Fusce ac nibh suscipit, placerat lorem eget, tempor odio",
+            "content": "Phasellus varius condimentum velit, nec sodales massa egestas a. Vivamus eget feugiat neque. Donec dignissim nisl in augue varius, nec lacinia ipsum molestie. Aenean aliquet lectus sit amet fermentum eleifend. In ut pretium nibh, eleifend auctor massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla tellus velit, posuere vitae felis et, tincidunt accumsan arcu. Quisque a diam id turpis ultricies vestibulum ac eget purus. Cras urna erat, volutpat vitae mi eu, dictum tincidunt lorem. Aliquam massa felis, pulvinar id mi id, congue posuere est. Integer sodales sollicitudin condimentum. Morbi malesuada, est ut posuere euismod, nibh tellus fringilla leo, vel mattis dui tellus eu nisi. Quisque suscipit lorem id est congue sollicitudin. Sed felis mi, rhoncus a consectetur in, rutrum at orci. ",
+            "author": "The Best Author"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "body": "Pellentesque placerat dui sit amet lacus dignissim, vitae semper nulla efficitur.",
+            "postId": 2
+        },
+        {
+            "id": 2,
+            "body": "Pellentesque ultrices elit vitae lorem venenatis, et facilisis odio scelerisque.",
+            "postId": 1
+        },
+        {
+            "id": 3,
+            "body": "Mauris aliquet diam ac bibendum dictum.",
+            "postId": 2
+        },
+        {
+            "id": 4,
+            "body": "Praesent fermentum arcu non porttitor mollis.",
+            "postId": 5
+        },
+        {
+            "id": 5,
+            "body": "Curabitur faucibus justo in velit molestie, a venenatis leo venenatis.",
+            "postId": 4
+        },
+        {
+            "id": 6,
+            "body": "Etiam vehicula risus sit amet orci efficitur, pulvinar rhoncus nunc pharetra.",
+            "postId": 3
+        },
+        {
+            "id": 7,
+            "body": "Pellentesque venenatis libero vel libero gravida, a commodo sapien volutpat.",
+            "postId": 5
+        },
+        {
+            "id": 8,
+            "body": "Sed id tortor ac purus sagittis sodales.",
+            "postId": 4
+        },
+        {
+            "id": 9,
+            "body": "Nunc et arcu sed velit volutpat rhoncus et et ipsum.",
+            "postId": 1
+        },
+        {
+            "id": 10,
+            "body": "Sed auctor sem id dolor porta ultrices.",
+            "postId": 3
+        }
+    ],
+    "profile": {
+        "name": "The Best Author"
+    }
+}
