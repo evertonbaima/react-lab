@@ -14,11 +14,20 @@ class InicioPage extends Component {
         this.state = {};
     }
 
+    componentWillMount() {
+        this.props.action.posts.getPosts();
+    }
+
     render() {
         return (
             <Row>
                 <Col md={12}>
-                    <p>Hello!</p>
+                    {this.props.posts.allPosts.map((item, index, array) =>
+                        <div key={index}>
+                            <h2>{item.title} <small>by {item.author}</small></h2>
+                            <p>{item.content}</p>
+                        </div>
+                    )}
                 </Col>
             </Row>
         );

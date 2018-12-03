@@ -4,6 +4,7 @@ import fetch from 'isomorphic-fetch';
 import { FETCH_FAIL, FETCH_WARNING } from './actions';
 
 import * as ActionCreatorStatus from './actions/index';
+import * as ActionCreatorPosts from './actions/posts';
 
 // Variáveis globais informadas no arquivo de configuração do webpack
 export const ENV = process.env.NODE_ENV;
@@ -73,7 +74,8 @@ export function toTitleCase(str) {
  */
 export function mapStateToProps(state) {
     return {
-        status: state.reducers.status
+        status: state.reducers.status,
+        posts: state.reducers.posts
     };
 }
 
@@ -83,7 +85,8 @@ export function mapStateToProps(state) {
 export function mapDispatchToProps(dispatch) {
     return {
         action: {
-            status: bindActionCreators(ActionCreatorStatus, dispatch)
+            status: bindActionCreators(ActionCreatorStatus, dispatch),
+            posts: bindActionCreators(ActionCreatorPosts, dispatch)
         }
     };
 }
@@ -100,7 +103,7 @@ export function mapDispatchToProps(dispatch) {
  * @param {object} [query={}]
  * @param {object} [callback=null]
  */
-export function* fetchUrl(url, successAction, errorAction = FETCH_FAIL, warningAction = FETCH_WARNING, parametros = {}, query = {}, callback = null) {
+export function* fetchUrl(url, successAction, errorAction = FETCH_FAIL, warningAction = FETCH_WARNING, query = {}, parametros = {}, callback = null) {
     try {
         const response = yield fetch(url, parametros);
         let jsonData = null;
@@ -381,4 +384,16 @@ export function aplicarMascara(valor, mascara, placeholder) {
     var newValorSubstring = newValorString.substring(0, newValorString.indexOf(placeholder));
 
     return (newValorSubstring || newValorString);
+}
+
+/**
+ * 
+ * @param {array} array 
+ * @param {array} content 
+ */
+export function replaceArrayContent(array, content) {
+    array.splice(0, array.length);
+    array.push(...content);
+
+    return array;
 }
